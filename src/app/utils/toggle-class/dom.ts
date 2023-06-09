@@ -2,7 +2,7 @@ export function hasClass(classname: string, element: HTMLElement) {
   return element.classList.contains(classname);
 }
 export function addClass(classname: string, element: HTMLElement) {
-  const cn = element.className ? element.className : '';
+  const cn = element.className ?? '';
 
   if (cn.includes(classname)) {
     return;
