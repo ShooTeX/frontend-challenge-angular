@@ -2,25 +2,23 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { addClass, removeClass } from './dom';
 
 describe('NotFoundComponent', () => {
-  let functRemove = removeClass;
-  let functAdd = addClass;
+  const functRemove = removeClass;
+  const functAdd = addClass;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({}).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({}).compileComponents();
+  }));
 
   it('should add class', () => {
-    let elem = document.createElement('div');
-    functAdd('test', elem);
-    expect(elem.className).toBe('test');
+    const element = document.createElement('div');
+    functAdd('test', element);
+    expect(element.className).toBe('test');
   });
 
   it('should remove class', () => {
-    let elem = document.createElement('div');
-    elem.setAttribute('class', 'test');
-    functRemove('test', elem);
-    expect(elem.className).toBe('');
+    const element = document.createElement('div');
+    element.setAttribute('class', 'test');
+    functRemove('test', element);
+    expect(element.className).toBe('');
   });
 });

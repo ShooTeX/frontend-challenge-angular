@@ -2,9 +2,9 @@ export function hasClass(classname: string, element: HTMLElement) {
   return element.classList.contains(classname);
 }
 export function addClass(classname: string, element: HTMLElement) {
-  let cn = element.className ? element.className : '';
+  const cn = element.className ? element.className : '';
 
-  if (cn.indexOf(classname) != -1) {
+  if (cn.includes(classname)) {
     return;
   }
 
@@ -16,5 +16,8 @@ export function addClass(classname: string, element: HTMLElement) {
 }
 
 export function removeClass(classname: string, element: HTMLElement) {
-  element.className = element.className.replace(new RegExp(classname, 'g'), '');
+  element.className = element.className.replaceAll(
+    new RegExp(classname, 'g'),
+    ''
+  );
 }
