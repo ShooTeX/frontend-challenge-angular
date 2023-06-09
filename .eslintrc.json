@@ -17,6 +17,7 @@
         "plugin:prettier/recommended"
       ],
       "rules": {
+        "unicorn/prefer-top-level-await": "off",
         "@angular-eslint/directive-selector": [
           "error",
           {
