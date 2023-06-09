@@ -3,23 +3,24 @@
 }
 
 .accordion__header {
-  margin: 0 0 16px 0;
+  margin: 0 0 16px;
   padding: 16px;
   border-top: 1px solid #798a69;
   border-bottom: 1px solid #798a69;
 }
+
 .accordion__header:hover {
   background: #eeeadc;
 }
 
 .form__elements {
   width: 100%;
-  margin: 0 0 20px 0;
+  margin: 0 0 20px;
 }
 
 .input {
   width: 100%;
-  margin: 0 0 5px 0;
+  margin: 0 0 5px;
 }
 
 .form__payment {
