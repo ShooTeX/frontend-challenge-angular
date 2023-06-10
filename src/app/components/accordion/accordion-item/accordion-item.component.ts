@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { BehaviorSubject, take } from 'rxjs';
 
 @Component({
   selector: 'app-accordion-item',
   templateUrl: './accordion-item.component.html',
   styleUrls: ['./accordion-item.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AccordionItemComponent {
   @Input()
@@ -13,7 +14,7 @@ export class AccordionItemComponent {
   @Input()
   public accordionId = '';
 
-  private openSubject = new BehaviorSubject(false);
+  private openSubject = new BehaviorSubject(true);
 
   public open$ = this.openSubject.asObservable();
 
