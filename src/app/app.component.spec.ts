@@ -1,12 +1,19 @@
 import { TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { AccordionGroupComponent } from './components/accordion/accordion-group/accordion-group.component';
+import { AccordionItemComponent } from './components/accordion/accordion-item/accordion-item.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [AppComponent],
+      imports: [RouterTestingModule, ReactiveFormsModule],
+      declarations: [
+        AppComponent,
+        AccordionGroupComponent,
+        AccordionItemComponent,
+      ],
     }).compileComponents();
   });
 
@@ -20,8 +27,8 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h2')?.textContent).toContain(
-      'You checkin data'
+    expect(compiled.querySelector('h1')?.textContent).toContain(
+      'Your check-in details'
     );
   });
 });
