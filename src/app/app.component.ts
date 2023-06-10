@@ -8,7 +8,7 @@ import { addClass, hasClass, removeClass } from './utils/toggle-class/dom';
 })
 export class AppComponent {
   constructor(private elementReference: ElementRef) {
-    this.elementRef = elementReference;
+    this.elementReference = elementReference;
   }
   onAccordionHeaderClick(event: Event) {
     const target: HTMLElement = event.target as HTMLElement;
