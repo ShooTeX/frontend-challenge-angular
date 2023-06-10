@@ -11,7 +11,7 @@ export class AppComponent {
   public form = new FormGroup({
     personal: new FormGroup(
       {
-        firstname: new FormControl(undefined),
+        firstname: new FormControl(),
         lastname: new FormControl(),
         email: new FormControl(undefined, [Validators.email]),
         phone: new FormControl(undefined, [Validators.pattern('^[0-9]*$')]),
