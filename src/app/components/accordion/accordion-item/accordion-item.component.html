@@ -1,0 +1,24 @@
+<h3>
+  <button
+    type="button"
+    class="accordion-trigger"
+    [attr.id]="'accordion-header-' + accordionId"
+    [attr.aria-expanded]="open$ | async"
+    [attr.aria-controls]="'accordion-content-' + accordionId"
+    (click)="toggle()"
+  >
+    <span class="accordion-title">
+      {{ title }}
+      <span class="accordion-icon"></span>
+    </span>
+  </button>
+</h3>
+<div
+  [attr.id]="'accordion-content-' + accordionId"
+  [attr.labelledby]="'accordion-header-' + accordionId"
+  role="region"
+  class="accordion-panel"
+  [style.display]="(open$ | async) === true ? '' : 'none'"
+>
+  <ng-content></ng-content>
+</div>
