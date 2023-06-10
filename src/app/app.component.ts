@@ -1,5 +1,5 @@
-import { Component, ElementRef } from '@angular/core';
-import { addClass, hasClass, removeClass } from './utils/toggle-class/dom';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,17 +7,40 @@ import { addClass, hasClass, removeClass } from './utils/toggle-class/dom';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private elementReference: ElementRef) {
-    this.elementReference = elementReference;
-  }
-  onAccordionHeaderClick(event: Event) {
-    const target: HTMLElement = event.target as HTMLElement;
-    const nextSibling = target.nextElementSibling as HTMLElement;
-    if (hasClass('hidden', nextSibling)) {
-      removeClass('hidden', nextSibling);
-    } else {
-      addClass('hidden', nextSibling);
-    }
-    return false;
+  // INFO: this form needs proper validation
+  public form = new FormGroup({
+    personal: new FormGroup(
+      {
+        firstname: new FormControl(undefined),
+        lastname: new FormControl(),
+        email: new FormControl(undefined, [Validators.email]),
+        phone: new FormControl(undefined, [Validators.pattern('^[0-9]*$')]),
+      },
+      [Validators.required]
+    ),
+    address: new FormGroup(
+      {
+        street: new FormControl(),
+        houseNumber: new FormControl(),
+        zipCode: new FormControl(),
+        city: new FormControl(),
+        country: new FormControl(),
+      },
+      [Validators.required]
+    ),
+    cc: new FormGroup(
+      {
+        ccn: new FormControl(),
+        expiration: new FormControl(),
+        cvv: new FormControl(),
+        cardholdername: new FormControl(),
+      },
+      [Validators.required]
+    ),
+  });
+
+  public onSubmit() {
+    console.log(this.form.value);
+    alert('Check console');
   }
 }

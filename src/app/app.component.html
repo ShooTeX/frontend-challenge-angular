@@ -1,18 +1,18 @@
 <div class="wrapper">
   <h1>Your check-in details</h1>
-  <form class="form">
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <app-accordion-group>
       <app-accordion-item
         title="Personal information"
         accordionId="personal-info"
       >
-        <fieldset>
+        <fieldset formGroupName="personal">
           <p class="formfield">
             <label for="firstname">First name</label>
             <input
               type="text"
               placeholder="First name"
-              name="firstname"
+              formControlName="firstname"
               id="firstname"
             />
           </p>
@@ -21,30 +21,40 @@
             <input
               type="text"
               placeholder="Last name"
-              name="lastname"
+              formControlName="lastname"
               id="lastname"
             />
           </p>
           <p class="formfield">
             <label for="email">Email</label>
-            <input type="email" placeholder="Email" name="email" id="email" />
+            <input
+              type="email"
+              placeholder="Email"
+              formControlName="email"
+              id="email"
+            />
           </p>
           <p class="formfield">
             <label for="phone">Phone Number</label>
             <input
               type="tel"
               placeholder="Phone number"
-              name="phone"
+              formControlName="phone"
               id="phone"
             />
           </p>
         </fieldset>
       </app-accordion-item>
       <app-accordion-item title="Address" accordionId="address">
-        <fieldset>
+        <fieldset formGroupName="address">
           <p class="formfield">
             <label for="street">Street</label>
-            <input type="text" placeholder="Street" name="street" id="street" />
+            <input
+              type="text"
+              placeholder="Street"
+              formControlName="street"
+              id="street"
+            />
           </p>
           <fieldset>
             <p class="formfield">
@@ -52,7 +62,7 @@
               <input
                 type="text"
                 placeholder="House Nr."
-                name="housenr"
+                formControlName="houseNumber"
                 id="housenr"
               />
             </p>
@@ -62,33 +72,38 @@
                 type="text"
                 pattern="[0-9]*"
                 placeholder="Zip Code"
-                name="zipcode"
+                formControlName="zipCode"
                 id="zipcode"
               />
             </p>
           </fieldset>
           <p class="formfield">
             <label for="city">City</label>
-            <input type="text" placeholder="City" name="city" id="city" />
+            <input
+              type="text"
+              placeholder="City"
+              formControlName="city"
+              id="city"
+            />
           </p>
           <p class="formfield">
             <label for="city">Country</label>
             <input
               type="text"
               placeholder="Country"
-              name="country"
+              formControlName="country"
               id="country"
             />
           </p>
         </fieldset>
       </app-accordion-item>
       <app-accordion-item title="Credit Card" accordionId="credit-card">
-        <fieldset>
+        <fieldset formGroupName="cc">
           <p class="formfield">
             <label for="ccn">Credit Card Number</label>
             <input
               id="ccn"
-              name="ccn"
+              formControlName="ccn"
               type="text"
               inputmode="numeric"
               pattern="[0-9\s]{13,19}"
@@ -102,7 +117,7 @@
               <input
                 type="text"
                 placeholder="MM/YY"
-                name="expiry"
+                formControlName="expiration"
                 id="expiry"
               />
             </p>
@@ -112,7 +127,7 @@
                 type="text"
                 pattern="[0-9]*"
                 placeholder="CVV"
-                name="cvv"
+                formControlName="cvv"
                 id="cvv"
               />
             </p>
@@ -122,7 +137,7 @@
             <input
               type="text"
               placeholder="Card Holder Name"
-              name="cardholdername"
+              formControlName="cardholdername"
               id="cardholdername"
             />
           </p>
@@ -133,6 +148,12 @@
         </fieldset>
       </app-accordion-item>
     </app-accordion-group>
-    <button type="submit" class="button">Save</button>
+    <button
+      type="submit"
+      class="button"
+      [disabled]="!form.valid || form.pristine"
+    >
+      Save
+    </button>
   </form>
 </div>

@@ -1,3 +1,7 @@
+h1 {
+  text-align: center;
+}
+
 .wrapper {
   padding: 1rem;
   max-width: 658px;
@@ -17,6 +21,15 @@
   color: white;
   cursor: pointer;
   border-radius: 0.3rem;
+
+  &[disabled] {
+    background-color: hsl(211deg 93% 65%);
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: hsl(211deg 93% 65%);
+    }
+  }
 
   &:hover {
     background-color: hsl(211deg 93% 35%);
