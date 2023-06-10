@@ -1,0 +1,28 @@
+h3 {
+  margin: 0;
+}
+
+.accordion-trigger {
+  border: none;
+  background-color: #f5f7fa;
+  color: black;
+  font-size: 1.3rem;
+  padding: 1rem 1.3rem;
+  text-align: left;
+  width: 100%;
+  outline: none;
+}
+
+.accordion-title {
+  display: flex;
+  justify-content: space-between;
+
+  .accordion-icon {
+    display: flex;
+    justify-content: center;
+
+    &--closed {
+      transform: rotate(180deg);
+    }
+  }
+}

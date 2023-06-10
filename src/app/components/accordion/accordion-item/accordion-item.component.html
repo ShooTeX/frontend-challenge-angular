@@ -9,7 +9,16 @@
   >
     <span class="accordion-title">
       {{ title }}
-      <span class="accordion-icon"></span>
+      <span
+        class="accordion-icon"
+        [class.accordion-icon--closed]="(open$ | async) === false"
+      >
+        <img
+          src="../../../../assets/arrow-down.svg"
+          alt="arrow"
+          aria-hidden="true"
+        />
+      </span>
     </span>
   </button>
 </h3>
