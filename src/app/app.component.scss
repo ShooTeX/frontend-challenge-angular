@@ -75,11 +75,13 @@ app-accordion-item {
       font-size: 0.9rem;
     }
 
-    > fieldset {
-      flex-direction: row;
+    @media (width >= 576px) {
+      > fieldset {
+        flex-direction: row;
 
-      .formfield {
-        width: 100%;
+        .formfield {
+          width: 100%;
+        }
       }
     }
   }
