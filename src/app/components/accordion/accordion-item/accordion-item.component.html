@@ -24,7 +24,7 @@
 </h3>
 <div
   [attr.id]="'accordion-content-' + accordionId"
-  [attr.labelledby]="'accordion-header-' + accordionId"
+  [attr.aria-labelledby]="'accordion-header-' + accordionId"
   role="region"
   class="accordion-panel"
   [style.display]="(open$ | async) === true ? '' : 'none'"
