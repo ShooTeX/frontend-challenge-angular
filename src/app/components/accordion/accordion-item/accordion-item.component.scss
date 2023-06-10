@@ -2,6 +2,17 @@ app-accordion-item {
   border-radius: 0.3rem;
   overflow: hidden;
 
+  .accordion-trigger {
+    border: none;
+    background-color: hsl(216deg 33% 97%);
+    color: black;
+    font-size: 1.3rem;
+    padding: 1rem 1.3rem;
+    text-align: left;
+    width: 100%;
+    outline: none;
+  }
+
   &:hover,
   &:focus,
   &:focus-within {
@@ -14,17 +25,6 @@ app-accordion-item {
 
   h3 {
     margin: 0;
-  }
-
-  .accordion-trigger {
-    border: none;
-    background-color: hsl(216deg 33% 97%);
-    color: black;
-    font-size: 1.3rem;
-    padding: 1rem 1.3rem;
-    text-align: left;
-    width: 100%;
-    outline: none;
   }
 
   .accordion-title {
