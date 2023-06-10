@@ -98,7 +98,7 @@
         </fieldset>
       </app-accordion-item>
       <app-accordion-item title="Credit Card" accordionId="credit-card">
-        <fieldset formGroupName="cc">
+        <fieldset formGroupName="cc" aria-describedby="cc-hint">
           <p class="formfield">
             <label for="ccn">Credit Card Number</label>
             <input
@@ -111,7 +111,7 @@
               placeholder="Credit Card Number"
             />
           </p>
-          <fieldset aria-describedby="cc-hint">
+          <fieldset>
             <p class="formfield">
               <label for="expiry">Expiry Date</label>
               <input
